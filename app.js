@@ -19,6 +19,18 @@ app.get('/ilike/:thing', (req, res) => {
 });
 
 
+// Use Loop 
+app.get('/posts', (req, res) => {
+    var posts = [
+        { title: "Harry", author: "King"},
+        { title: "Porter", author: "Queen"},
+        { title: "Mama", author: "Papa"}
+    ]
+    
+    res.render('posts.ejs', {posts: posts})
+})
+
+
 // Routes
 app.get('/r/:id', (req, res) => {
     var id = req.params.id;

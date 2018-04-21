@@ -1,0 +1,15 @@
+<h1>My Blog posts</h1>
+
+<!-- Use For Loop -->
+<% for( var i = 0; i < posts.length; i++ ) { %>
+    <li><%= posts[i].title %> - by  <%= posts[i].author %></li>
+<% }  %>
+
+
+<p>------------------</p>
+
+<!-- Use forEach loop (Recommend) -->
+
+<% posts.forEach(function(post) { %>
+    <li><%= post.title %> - by  <%= post.author %></li>
+<% }) %>
