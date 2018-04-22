@@ -2,20 +2,23 @@ var express = require('express');
 var app = express();
 
 
-app.get('/', (req, res) => {
-    res.send('hi');
-});
+// Go to public folder
+app.use(express.static('public'))
+
+
+// Run file with ejs extension
+app.set('view engine', 'ejs')
 
 
 // Ejs template
-app.get('/dogs', (req, res) => {
-    res.render('home.ejs');
+app.get('/', (req, res) => {
+    res.render('home');
 });
 
 // Connect EJS to server
 app.get('/ilike/:thing', (req, res) => {
     var thing = req.params.thing;
-    res.render('love.ejs', {thingVar: thing})
+    res.render('love', {thingVar: thing})
 });
 
 
@@ -27,7 +30,7 @@ app.get('/posts', (req, res) => {
         { title: "Mama", author: "Papa"}
     ]
     
-    res.render('posts.ejs', {posts: posts})
+    res.render('posts', {posts: posts})
 })
 
 
